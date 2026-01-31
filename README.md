@@ -1,8 +1,10 @@
 
 ⭐ README UFFICIALE — Vera‑CDE WorkPanel (con badge)
 
-`markdown
 
+![Vera‑CDE](https://img.shields.io/badge/Vera--CDE-Civic%20Defense%20Ecosystem-purple)
+![Aurora‑Chain](https://img.shields.io/badge/Aurora--Chain-Ready-orange)
+![CDE](https://img.shields.io/badge/CDE-Operational-blueviolet)
 Vera‑CDE WorkPanel
 Console operativa del Civic Defense Service
 
