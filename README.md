@@ -185,3 +185,13 @@ Il progetto è pubblico e aperto a contributi civili, responsabili e documentati
 Licenza civile dedicata (Civic Defense License).  
 Consultare la Wiki per dettagli.
 
+
+## Build & Status
+
+![CI](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/ci.yml?label=CI)
+![Deploy](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/deploy.yml?label=Deploy)
+![Modules](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/modules-check.yml?label=Modules)
+![Wiki](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/wiki-sync.yml?label=Wiki)
+![Vera‑CDE](https://img.shields.io/badge/Vera--CDE-Civic%20Defense%20Ecosystem-purple)
+![Aurora‑Chain](https://img.shields.io/badge/Aurora--Chain-Ready-orange)
+![CDE](https://img.shields.io/badge/CDE-Operational-blueviolet)

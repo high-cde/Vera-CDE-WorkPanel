@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Lint
+        run: |
+          if [ -f package.json ] && npm run | grep -q lint; then npm run lint; else echo "No lint"; fi
+
+      - name: Test
+        run: |
+          if [ -f package.json ] && npm test -- --help >/dev/null 2>&1; then npm test; else echo "No tests"; fi

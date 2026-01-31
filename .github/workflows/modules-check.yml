@@ -1,0 +1,60 @@
+name: Modules & Schemas Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-structure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify modules structure
+        run: |
+          REQUIRED=(
+            "modules/osint/api/osint-api.md"
+            "modules/osint/router/osint-router.md"
+            "modules/osint/schemas/osint-schema.json"
+            "modules/crm/api/crm-api.md"
+            "modules/crm/router/crm-router.md"
+            "modules/crm/schemas/crm-schema.json"
+            "modules/missioni/api/missioni-api.md"
+            "modules/missioni/router/missioni-router.md"
+            "modules/missioni/schemas/missioni-schema.json"
+            "modules/preventivi/api/preventivi-api.md"
+            "modules/preventivi/router/preventivi-router.md"
+            "modules/preventivi/schemas/preventivi-schema.json"
+            "modules/gps/api/gps-api.md"
+            "modules/gps/router/gps-router.md"
+            "modules/gps/schemas/gps-schema.json"
+            "modules/wallet/api/wallet-api.md"
+            "modules/wallet/router/wallet-router.md"
+            "modules/wallet/schemas/wallet-schema.json"
+            "modules/aurora/api/aurora-api.md"
+            "modules/aurora/router/aurora-router.md"
+            "modules/aurora/schemas/aurora-schema.json"
+            "modules/system/api/system-api.md"
+            "modules/system/router/system-router.md"
+            "modules/system/schemas/system-schema.json"
+            "modules/auth/api/auth-api.md"
+            "modules/auth/router/auth-router.md"
+            "modules/auth/schemas/auth-schema.json"
+          )
+
+          MISSING=0
+          for f in "${REQUIRED[@]}"; do
+            if [ ! -f "$f" ]; then echo "[MISSING] $f"; MISSING=1; else echo "[OK] $f"; fi
+          done
+
+          if [ "$MISSING" -ne 0 ]; then exit 1; fi
+
+      - name: Validate JSON schemas
+        run: |
+          find modules -name "*.json" -print0 | while IFS= read -r -d '' f; do
+            python -m json.tool "$f" > /dev/null
+          done
