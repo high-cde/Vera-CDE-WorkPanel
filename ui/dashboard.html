@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard — Vera‑CDE</title>
+  <style>
+    body { font-family: Arial; margin: 0; background: #f5f5f5; }
+    h1 { margin: 20px; }
+    .grid { display: flex; flex-wrap: wrap; }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      min-width: 220px;
+    }
+    .label { color: #666; font-size: 0.9em; }
+    .value { font-size: 1.6em; font-weight: bold; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Operativa — Vera‑CDE</h1>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Missioni attive</div>
+      <div class="value" id="missioni_attive">–</div>
+      <div class="label">In corso: <span id="missioni_in_corso">–</span></div>
+      <div class="label">Completate: <span id="missioni_completate">–</span></div>
+    </div>
+
+    <div class="card">
+      <div class="label">CDC registrati</div>
+      <div class="value" id="cdc_registrati">–</div>
+      <div class="label">Firmati: <span id="cdc_firmati">–</span></div>
+      <div class="label">In attesa: <span id="cdc_in_attesa">–</span></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Aurora — ultimo evento</div>
+      <div class="value" id="aurora_event">–</div>
+      <div class="label">CDC: <span id="aurora_cdc">–</span></div>
+      <div class="label">Timestamp: <span id="aurora_ts">–</span></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Operatori online</div>
+      <div class="value" id="operatori_online">–</div>
+      <div class="label">Totali: <span id="operatori_totali">–</span></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Ultimi eventi</div>
+      <ul id="log_list">
+        <li>Caricamento...</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Dashboard aggregata
+    fetch("../mock/api/dashboard.json")
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById("missioni_attive").innerText = d.missioni.attive;
+        document.getElementById("missioni_in_corso").innerText = d.missioni.in_corso;
+        document.getElementById("missioni_completate").innerText = d.missioni.completate;
+
+        document.getElementById("cdc_registrati").innerText = d.cdc.registrati;
+        document.getElementById("cdc_firmati").innerText = d.cdc.firmati;
+        document.getElementById("cdc_in_attesa").innerText = d.cdc.in_attesa;
+
+        document.getElementById("aurora_event").innerText = d.aurora.latest_event;
+        document.getElementById("aurora_cdc").innerText = d.aurora.cdc_id;
+        document.getElementById("aurora_ts").innerText = d.aurora.timestamp;
+
+        document.getElementById("operatori_online").innerText = d.operatori.online;
+        document.getElementById("operatori_totali").innerText = d.operatori.totali;
+      });
+
+    // Log dettagliato
+    fetch("../mock/log.json")
+      .then(r => r.json())
+      .then(list => {
+        const ul = document.getElementById("log_list");
+        ul.innerHTML = "";
+        list.forEach(ev => {
+          const li = document.createElement("li");
+          li.textContent = ev.timestamp + " | " + ev.module + " | " + ev.action + " | " + ev.operator;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "missioni": {
+    "attive": 4,
+    "in_corso": 2,
+    "completate": 12
+  },
+  "cdc": {
+    "registrati": 18,
+    "firmati": 12,
+    "in_attesa": 6
+  },
+  "aurora": {
+    "latest_event": "EvidenceAnchored",
+    "cdc_id": "CDC-2026-001",
+    "timestamp": "2026-01-31T15:00:00Z"
+  },
+  "operatori": {
+    "online": 3,
+    "totali": 7
+  },
+  "log": {
+    "ultimi_eventi": 5
+  }
+}

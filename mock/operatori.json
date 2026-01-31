@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-01-31T15:00:00Z",
+    "module": "missioni",
+    "action": "MissionCreated",
+    "operator": "OP-001"
+  },
+  {
+    "timestamp": "2026-01-31T15:05:00Z",
+    "module": "aurora",
+    "action": "EvidenceAnchored",
+    "operator": "NODE-001"
+  },
+  {
+    "timestamp": "2026-01-31T15:10:00Z",
+    "module": "cdc",
+    "action": "ContractSigned",
+    "operator": "OP-002"
+  }
+]
