@@ -1,51 +1,44 @@
-# Vera‑CDE WorkPanel  
-Console operativa del Civic Defense Service
-
-![CI](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/ci.yml?label=CI)
-![Deploy](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/deploy.yml?label=Deploy)
-![Modules](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/modules-check.yml?label=Modules)
-![Wiki](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/wiki-sync.yml?label=Wiki)
-![Release](https://img.shields.io/github/v/release/high-cde/Vera-CDE-WorkPanel)
-![License](https://img.shields.io/badge/license-Civic%20Defense%20License-blue)
-![Status](https://img.shields.io/badge/status-Stable%20v1.0-brightgreen)
-![Docs](https://img.shields.io/badge/wiki-Documentation-blue)
-
-## 🚀 Stato del progetto
-Versione **1.0 stabile**  
-Dashboard, moduli completi, mock API, CI/CD completa, Wiki sincronizzata.
-=======
-
-⭐ README UFFICIALE — Vera‑CDE WorkPanel (con badge)
 
 
-![Vera‑CDE](https://img.shields.io/badge/Vera--CDE-Civic%20Defense%20Ecosystem-purple)
-![Aurora‑Chain](https://img.shields.io/badge/Aurora--Chain-Ready-orange)
-![CDE](https://img.shields.io/badge/CDE-Operational-blueviolet)
 Vera‑CDE WorkPanel
 Console operativa del Civic Defense Service
 
-!Build Status
+!CI
+!Deploy
+!Modules
+!Wiki
 !Release
 !License
 !Status
 !Docs
+!Vera‑CDE
+!Aurora‑Chain
+!CDE
 
 ---
 
 🚀 Stato del progetto
+
 Versione 1.0 stabile  
-- Dashboard operativa  
-- Moduli completi (OSINT, CRM, Missioni, Preventivi, GPS, Wallet, Aurora, System, Auth)  
-- Mock API funzionanti  
-- Documentazione completa (Wiki + OpenAPI)  
-- Pipeline GitHub Actions attiva  
-- Deploy automatico su GitHub Pages  
+Dashboard operativa, moduli completi, mock API, CI/CD completa, Wiki sincronizzata.
+
+- Dashboard operativa
+- Moduli completi (OSINT, CRM, Missioni, Preventivi, GPS, Wallet, Aurora, System, Auth)
+- Mock API funzionanti
+- Documentazione completa (Wiki + OpenAPI)
+- Pipeline GitHub Actions attiva
+- Deploy automatico su GitHub Pages
 
 ---
 
 🌐 Accesso rapido
+
 - UI pubblica (GitHub Pages)  
-  (verrà generata automaticamente dalla pipeline)
+  (servita dalla pipeline GitHub Actions)  
+  https://high-cde.github.io/Vera-CDE-WorkPanel/ui/
+
+- Landing / root  
+  https://high-cde.github.io/Vera-CDE-WorkPanel/
 
 - Wiki ufficiale  
   https://github.com/high-cde/Vera-CDE-WorkPanel/wiki
@@ -59,7 +52,7 @@ Versione 1.0 stabile
 
 Il WorkPanel si basa su una struttura modulare:
 
-`
+`text
 Vera-CDE-WorkPanel/
 │
 ├── ui/                 → Interfaccia operativa
@@ -87,11 +80,11 @@ Vera-CDE-WorkPanel/
 
 La dashboard mostra in tempo reale (mock):
 
-- Missioni attive, in corso, completate  
-- CDC registrati, firmati, in attesa  
-- Ultimo evento su Aurora‑Chain  
-- Operatori online  
-- Ultimi log operativi  
+- Missioni attive, in corso, completate
+- CDC registrati, firmati, in attesa
+- Ultimo evento su Aurora‑Chain
+- Operatori online
+- Ultimi log operativi
 
 Tutto alimentato da mock JSON per garantire una demo completa anche senza backend.
 
@@ -101,21 +94,21 @@ Tutto alimentato da mock JSON per garantire una demo completa anche senza backen
 
 Ogni modulo contiene:
 
-- API  
-- Router  
-- Schemi  
-- Documentazione  
+- API
+- Router
+- Schemi
+- Documentazione
 
 Moduli inclusi:
 
-- OSINT  
-- CRM  
-- Missioni  
-- Preventivi  
-- GPS  
-- Wallet  
-- Aurora  
-- System  
+- OSINT
+- CRM
+- Missioni
+- Preventivi
+- GPS
+- Wallet
+- Aurora
+- System
 - Auth
 
 ---
@@ -124,11 +117,11 @@ Moduli inclusi:
 
 File: api/openapi.yaml
 
-Include:
+Include, tra gli altri:
 
-- /missioni
-- /cdc
-- /aurora/state/{cdc_id}
+- GET /missioni
+- GET /cdc
+- GET /aurora/state/{cdc_id}
 
 ---
 
@@ -136,62 +129,51 @@ Include:
 
 La pipeline:
 
-- valida la struttura  
-- pubblica la UI su GitHub Pages  
-- aggiorna automaticamente la versione pubblica  
+- valida la struttura dei moduli e degli schemi
+- esegue la CI sulla UI
+- pubblica la UI su GitHub Pages
+- sincronizza la Wiki
+- mantiene i badge sempre aggiornati
 
-File:  
-.github/workflows/deploy.yml
+Workflow principali:
 
----
-
-🛡️ Civic Defense Score (CDS)
-
-Algoritmo ufficiale:
-
-`
-CDS = (M + C + A) - P
-`
-
-- M = missioni completate  
-- C = CDC firmati  
-- A = prove ancorate  
-- P = penalità  
-
-Range: 0–100
+- ci.yml
+- deploy.yml
+- modules-check.yml
+- wiki-sync.yml
 
 ---
 
-📦 Release
+🛡 Visione Civic Defense
 
-Versione corrente: v1.0.0
+Vera‑CDE WorkPanel è la console operativa del Civic Defense Service,  
+pensata per:
 
-Per scaricare:
+- operare in contesti civili critici
+- mantenere tracciabilità e ordine operativo
+- integrarsi con Aurora‑Chain per notarizzazione e Civic Defense Economy
+- esistere come terminale pubblico, verificabile, documentato
 
-`
-git clone https://github.com/high-cde/Vera-CDE-WorkPanel.git
+Questo repository è una unità civile operativa, non solo codice.
 `
 
 ---
 
-🤝 Contributi
+Poi:
 
-Il progetto è pubblico e aperto a contributi civili, responsabili e documentati.
+`bash
+cd ~/Vera-CDE-WorkPanel
+git add README.md
+git commit -m "Rebuild README: clean, stable, civic"
+git push
+`
 
----
+E da lì:
 
-🏛️ Licenza
+`bash
+cde status
+cde full
 
-Licenza civile dedicata (Civic Defense License).  
-Consultare la Wiki per dettagli.
 
 
-## Build & Status
 
-![CI](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/ci.yml?label=CI)
-![Deploy](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/deploy.yml?label=Deploy)
-![Modules](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/modules-check.yml?label=Modules)
-![Wiki](https://img.shields.io/github/actions/workflow/status/high-cde/Vera-CDE-WorkPanel/wiki-sync.yml?label=Wiki)
-![Vera‑CDE](https://img.shields.io/badge/Vera--CDE-Civic%20Defense%20Ecosystem-purple)
-![Aurora‑Chain](https://img.shields.io/badge/Aurora--Chain-Ready-orange)
-![CDE](https://img.shields.io/badge/CDE-Operational-blueviolet)
